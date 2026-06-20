@@ -1,7 +1,7 @@
 import streamlit as st
 from app import ask_mwalimu
 
-st.title("📚 Mwalimu AI")
+st.title("📚 Mwalimu AI App")
 st.write("Welcome! Ask me any school question.")
 
 # 1. Initialize session state to remember the Q&A across page reruns
@@ -30,7 +30,7 @@ with st.form(key="mwalimu_form", clear_on_submit=True):
 if submit_button:
     if question.strip():
         # The spinner is called here, rendering it physically below the form elements
-        with st.spinner("Mwalimu AI is thinking..."):
+        with st.spinner("Mwalimu AI App is thinking..."):
             answer = ask_mwalimu(question)
             
             # Save the results to state

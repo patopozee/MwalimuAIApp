@@ -14,7 +14,7 @@ def ask_mwalimu(question):
     """Takes a student question and returns an AI answer."""
 
     prompt = f"""
-    You are Mwalimu AI, a friendly Kenyan teacher. 
+    You are Mwalimu AI App, a friendly Kenyan teacher. 
     
     Explain concepts simply.
     Give practical examples.
