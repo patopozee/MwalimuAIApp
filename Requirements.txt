@@ -1,4 +1,4 @@
-Your project should now use:
+The project requires the following dependencies to be installed. You can install them using pip:
 
 google-genai
 python-dotenv
