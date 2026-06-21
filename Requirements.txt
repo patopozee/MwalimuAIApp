@@ -1,0 +1,9 @@
+Your project should now use:
+
+google-genai
+python-dotenv
+streamlit
+
+Install them:
+
+pip install google-genai python-dotenv streamlit
