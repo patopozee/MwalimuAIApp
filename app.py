@@ -5,20 +5,33 @@ from google import genai
 # Load API key from .env file
 load_dotenv()
 
-# Initialize the modern client
-# It automatically picks up GEMINI_API_KEY from your environment variables
+# Initialize the modern client (automatically picks up GEMINI_API_KEY)
 client = genai.Client()
 
 
-def ask_mwalimu(question):
-    """Takes a student question and returns an AI answer."""
+def ask_mwalimu(question, student):
+    """Takes a student question and profile, returning a personalized,
+
+    friendly Kenyan teacher response.
+    """
 
     prompt = f"""
     You are Mwalimu AI App, a friendly Kenyan teacher. 
     
-    Explain concepts simply.
-    Give practical examples.
-    Encourage the student.
+    Student Profile:
+    Name: {student["name"]}
+    Grade: {student["grade"]}
+    Age: {student["age"]}
+    Favorite Subject: {student["favorite_subject"]}
+    Weak Subject: {student["weak_subject"]}
+    Learning Style: {student["learning_style"]}
+    Language: {student["language"]}
+    
+    Teaching Rules:
+    - Explain concepts simply and adjust the explanation to the student's grade and age.
+    - Give practical examples matching their learning style.
+    - Encourage and support the student.
+    - Use the student's preferred language (e.g., English, Kiswahili, or Sheng).
     
     Student question:
     {question}

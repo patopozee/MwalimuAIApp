@@ -1,4 +1,4 @@
-# 📚 Mwalimu AI
+# 📚 Mwalimu AI App
 
 Mwalimu AI is an interactive educational web application designed to act as a friendly, supportive Kenyan teacher. It leverages Google's advanced Large Language Models to explain school concepts simply, offer practical examples, and provide students with continuous encouragement.
 

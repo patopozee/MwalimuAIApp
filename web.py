@@ -1,8 +1,32 @@
 import streamlit as st
 from app import ask_mwalimu
+from student import student
 
 st.title("📚 Mwalimu AI App")
 st.write("Welcome! Ask me any school question.")
+
+# -----------------------------
+# Student Profile Sidebar
+# -----------------------------
+st.sidebar.title("👨‍🎓 Student Profile")
+
+st.sidebar.write(
+    f"""
+    **Name:** {student["name"]}
+
+    **Grade:** {student["grade"]}
+
+    **Age:** {student["age"]}
+
+    **Favorite Subject:** {student["favorite_subject"]}
+
+    **Weak Subject:** {student["weak_subject"]}
+
+    **Learning Style:** {student["learning_style"]}
+
+    **Language:** {student["language"]}
+    """
+)
 
 # 1. Initialize session state to remember the Q&A across page reruns
 if "current_question" not in st.session_state:
@@ -31,7 +55,7 @@ if submit_button:
     if question.strip():
         # The spinner is called here, rendering it physically below the form elements
         with st.spinner("Mwalimu AI App is thinking..."):
-            answer = ask_mwalimu(question)
+            answer = ask_mwalimu(question, student)
             
             # Save the results to state
             st.session_state.current_answer = answer
