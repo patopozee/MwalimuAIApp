@@ -1,0 +1,23 @@
+# .github/workflows/fly-deploy.yml
+name: Fly Deploy
+on:
+  push:
+    branches:
+      - main  # Triggers deployment whenever you push to the main branch
+
+jobs:
+  deploy:
+    name: Deploy App
+    runs-on: ubuntu-latest
+    concurrency: deploy-group    # Prevents multiple deployments from overlapping
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Superfly CLI
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deploy to Fly.io
+        run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
